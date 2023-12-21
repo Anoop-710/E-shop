@@ -1,5 +1,5 @@
 // Parent to other apiSlices
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"; //createApi is used instead of createSlice since this slice handles the async functions
 import { BASE_URL } from "../constants";
 
 const baseQuery = fetchBaseQuery({
