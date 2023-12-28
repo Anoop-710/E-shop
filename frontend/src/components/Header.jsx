@@ -6,6 +6,11 @@ import { useSelector } from "react-redux";
 import logo from "../assets/logo.png";
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);
+  const { userInfo } = useSelector((state) => state.auth);
+
+  const logoutHandler = () => {
+    console.log("Logout");
+  };
   // console.log(cartItems);
   // state.cart reference form store.js
   return (
@@ -33,11 +38,22 @@ const Header = () => {
                     )}
                   </Nav.Link>
                 </LinkContainer>
-                <LinkContainer to="/login">
-                  <Nav.Link>
-                    <FaUser /> Sign In
-                  </Nav.Link>
-                </LinkContainer>
+                {userInfo ? (
+                  <NavDropdown title={userInfo.name} id="username">
+                    <LinkContainer to="/profile">
+                      <NavDropdown.Item>Profile</NavDropdown.Item>
+                    </LinkContainer>
+                    <NavDropdown.Item onClick={logoutHandler}>
+                      Logout
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                ) : (
+                  <LinkContainer to="/login">
+                    <Nav.Link href="/login">
+                      <FaUser /> Sign In
+                    </Nav.Link>
+                  </LinkContainer>
+                )}
               </Nav>
             </Navbar.Collapse>
           </Container>
