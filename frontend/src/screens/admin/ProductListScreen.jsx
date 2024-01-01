@@ -1,7 +1,7 @@
 import React from "react";
 import { LinkContainer } from "react-router-bootstrap";
 import { Table, Button, Row, Col } from "react-bootstrap";
-import { FaTimes, FaEdit, FaTrash } from "react-icons/fa";
+import { FaEdit, FaTrash } from "react-icons/fa";
 import Message from "../../components/Message";
 import Loader from "../../components/Loader";
 import {
@@ -21,7 +21,7 @@ const ProductListScreen = () => {
   const createProductHandler = async () => {
     if (window.confirm("Are you sure you want to create a new product?")) {
       try {
-        const { data } = await createProduct().unwrap();
+        await createProduct();
         refetch();
         // console.log(data);
       } catch (err) {
