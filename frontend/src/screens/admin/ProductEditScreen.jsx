@@ -4,7 +4,7 @@ import { Form, Button } from "react-bootstrap";
 import FormContainer from "../../components/FormContainer";
 import Message from "../../components/Message";
 import Loader from "../../components/Loader";
-import { useDispatch, useSelector } from "react-redux";
+
 import {
   useGetProductDetailsQuery,
   useUpdateProductMutation,
